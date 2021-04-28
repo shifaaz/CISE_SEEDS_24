@@ -150,7 +150,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>SEEDS PROJECT TEAM 24</h1>
+            <h1>SEEDS PROJECT TEAM 24.</h1>
             <Table columns={columns} data={data} />
         </div>
     );
