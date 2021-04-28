@@ -11,12 +11,16 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
+    "manor": "^0.1.0",
     "moment": "^2.29.1",
+    "namor": "^2.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-table": "^7.7.0",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.3",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -46,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^7.25.0",
     "prettier": "^2.2.1",
     "prettier-eslint-cli": "^5.0.1"
   }
