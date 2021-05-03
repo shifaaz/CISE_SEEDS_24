@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useTable, useFilters, useSortBy } from "react-table";
 
@@ -32,7 +33,7 @@ export default function Table({ columns, data }) {
             <input
                 value={filterInput}
                 onChange={handleFilterChange}
-                placeholder={"Search name"}
+                placeholder={"Search article name"}
             />
             <table {...getTableProps()}>
                 <thead>
