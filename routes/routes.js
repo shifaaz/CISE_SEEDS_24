@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const articleController = require("../Controller/articleController");
+const customSearchController = require("../Controller/customSearchController");
 
 
 
@@ -12,13 +13,16 @@ router
     .put(articleController.updatePublicArticleRating)
     .get(articleController.getSpecificArticle);
 
-
-
+router
+    .route("/sepractice")
+    .get(customSearchController.getSePracticeMethods)
+    .post(customSearchController.addMethod);
 
 router
-    .route("/declined")
-    .get(articleController.getDeclinedArticle)
-    .post(articleController.declineArticle);
+    .route("/sepractice/:sepracticeid")
+    .put(customSearchController.addNewMethod);
+
+
 
 router
     .route("/articles")
