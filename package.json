@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "test_back": "npm run test.js",
     "start": "nodemon server.js",
-    "test": "cd client && react-scripts test" //specifing the location and the file name
-     
-  },
+    "test_front": "cd client && npm test"
+    
+       },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shifaaz/CISE_SEEDS_24.git"
