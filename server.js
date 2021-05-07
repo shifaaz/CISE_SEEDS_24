@@ -24,8 +24,8 @@ mongoose.connect(process.env.URI || mongoKey, {
     .catch(console.error)
 
 
-app.use(bodyparser.urlencoded({ extended: true }));
-app.use(bodyparser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
 app.use(passport.initialize());
 require("./config/passport")(passport);
