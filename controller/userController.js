@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const userSchema = require('../Models/userSchema');
+const userSchema = require('../models/userSchema');
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const validateRegisterInput = require("../validation/register");
@@ -18,7 +18,7 @@ module.exports = {
         }
         User.findOne({ email: req.body.email }).then(user => {
             if (user) {
-                return res.status(400).json({message:"Email already exists"});
+                return res.status(400).json({ message: "Email already exists" });
             } else {
                 const newUser = new User({
                     name: req.body.name,
@@ -76,7 +76,7 @@ module.exports = {
         User.findOne({ email }).then(user => {
             // Check if user exists
             if (!user) {
-                return res.status(404).json( "Email not found" );
+                return res.status(404).json("Email not found");
             }
             // Check password
             bcrypt.compare(password, user.password).then(isMatch => {
@@ -110,7 +110,7 @@ module.exports = {
                 } else {
                     return res
                         .status(400)
-                        .json( "Password incorrect" );
+                        .json("Password incorrect");
                 }
             });
         });
@@ -131,10 +131,10 @@ module.exports = {
             .then(user => res.json(user))
             .catch(err => res.status(422).json(err));
     },
-    changeRole: function(req, res) {
-		User.findOneAndUpdate({ _id: req.params.UserId },  req.body, {new: true})
-			.then(user => res.json(user))
-			.catch(err => res.status(422).json(err));
+    changeRole: function (req, res) {
+        User.findOneAndUpdate({ _id: req.params.UserId }, req.body, { new: true })
+            .then(user => res.json(user))
+            .catch(err => res.status(422).json(err));
     },
     deleteUser: function (req, res) {
         User.deleteOne({ _id: req.params.UserId })

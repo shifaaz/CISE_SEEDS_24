@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const articleSchema = require('../Models/articleSchema')
+const articleSchema = require('../models/articleSchema')
 
 const publicArticle = mongoose.model('publicArticle', articleSchema);
 const moderatorArticle = mongoose.model('moderatorArticle', articleSchema)
@@ -8,7 +8,7 @@ const declinedArticle = mongoose.model('declinedArticle', articleSchema)
 //const File = mongoose.model('File', fileSchema);
 
 module.exports = {
-    addNewArticle: (req,res) =>{
+    addNewArticle: (req, res) => {
         moderatorArticle.create(req.body)
             .then(newArticle => res.json(newArticle))
             .catch(err => res.status(422).json(err));
@@ -48,10 +48,10 @@ module.exports = {
             .then(Articles => res.json(Articles))
             .catch(err => res.status(422).json(err));
     },
-    updatePublicArticleRating: function(req, res) {
-		publicArticle.findByIdAndUpdate({ _id: req.params.ArticleId }, {$push : req.body}, {new: true})
-			.then(Article => res.json(Article))
-			.catch(err => res.status(422).json(err));
+    updatePublicArticleRating: function (req, res) {
+        publicArticle.findByIdAndUpdate({ _id: req.params.ArticleId }, { $push: req.body }, { new: true })
+            .then(Article => res.json(Article))
+            .catch(err => res.status(422).json(err));
     },
     declineArticle: function (req, res) {
         declinedArticle.create(req.body)
@@ -64,7 +64,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     getSpecificArticle: function (req, res) {
-        publicArticle.find({ _id: req.params.ArticleId})
+        publicArticle.find({ _id: req.params.ArticleId })
             .then(Articles => res.json(Articles))
             .catch(err => res.status(422).json(err));
     },

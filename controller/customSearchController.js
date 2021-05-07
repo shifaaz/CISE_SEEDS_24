@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const customSearchSchema = require('../Models/customSearchSchema')
+const customSearchSchema = require('../models/customSearchSchema')
 
 const customSearch = mongoose.model('customSearch', customSearchSchema);
 
