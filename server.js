@@ -2,10 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const cors = require('cors');
-const routes = require('/Routes/routes.js');
-const specificRoutes = require('/Routes/specificRoutes.js');
+const routes = require('./Routes/routes.js');
+const specificRoutes = require('./Routes/specificRoutes.js');
 const path = require('path');
-const mongoKey = require("/config/keys").mongoURI
+const mongoKey = require("./config/keys").mongoURI
 const passport = require("passport");
 
 
