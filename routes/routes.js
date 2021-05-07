@@ -33,7 +33,7 @@ router
 router
   .route("/analyst/:ArticleId")
   .delete(articleController.analystDelete)
-  
+
 
 router
   .route("/declined")
