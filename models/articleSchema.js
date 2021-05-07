@@ -48,14 +48,14 @@ const articleSchema = new Schema({
     rating: {
         type: [Number]
     },
-    claim: {
-        type: String,
+    semethod: {
+        type: String
     },
     strengthofevidence: {
         type: String,
     },
-    sepractice: {
-        type: String
+    claim: {
+        type: String,
     }
 })
 

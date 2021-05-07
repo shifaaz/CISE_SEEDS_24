@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const customSearchSchema = new Schema({
-    name: {
+    name:{
         type: String
     },
     seMethod: {
