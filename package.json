@@ -1,7 +1,6 @@
 {
   "name": "cise_seeds_24",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -32,12 +31,14 @@
     "config": "^3.3.2",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "formidable": "^1.2.2",
     "global": "^4.4.0",
     "gridfs": "^1.0.0",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "lint": "^0.7.0",
     "mocha": "^8.1.1",
+    "mongodb": "^3.6.6",
     "mongoose": "^5.10.2",
     "mongoose-double": "0.0.1",
     "mongoose-float": "^1.0.4",
@@ -50,5 +51,7 @@
   },
   "devDependencies": {
     "request": "^2.88.2"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
