@@ -103,12 +103,7 @@ function CustomSearchCard(props) {
           <Col md="auto">If</Col>
           <Col md="auto">
             <DropdownButton id="dropdown-basic-button" title={selectValue}>
-              <Dropdown.Item onClick={(e) => changeSelect(e)}>
-                SE Method
-                </Dropdown.Item>
-              <Dropdown.Item onClick={(e) => changeSelect(e)}>
-                SE Methodology
-                </Dropdown.Item>
+
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
                 Title
                 </Dropdown.Item>

@@ -72,7 +72,7 @@ function SearchResults() {
 
     const sortByEvidence = (e) => {
         e.preventDefault();
-        if (e.target.textContent.toLowerCase() === "strength_of_evidence") {
+        if (e.target.textContent.toLowerCase() === "Strength of Evidence") {
             setArticles([...articles].sort((a, b) => a.strength_of_evidence.trim() > b.strength_of_evidence.trim() ? 1 : -1));
         }
     }
@@ -192,7 +192,7 @@ function SearchResults() {
                             <Dropdown.Item value="title" onClick={(e) => sortByTitle(e)}>Title</Dropdown.Item>
                             <Dropdown.Item value="rating" onClick={(e) => sortByRating(e)}>Rating</Dropdown.Item>
                             <Dropdown.Item value="claim" onClick={(e) => sortByClaim(e)}>Claim</Dropdown.Item>
-                            <Dropdown.Item value="strength_of_evidence" onClick={(e) => sortByEvidence(e)}>Strength of Evidence</Dropdown.Item>
+                            <Dropdown.Item value="strength_of_evidence">Strength of Evidence</Dropdown.Item>
 
                         </DropdownButton>
                     </div>
