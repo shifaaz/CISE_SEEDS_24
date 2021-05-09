@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -103,6 +104,9 @@ function CustomSearchCard(props) {
           <Col md="auto">If</Col>
           <Col md="auto">
             <DropdownButton id="dropdown-basic-button" title={selectValue}>
+              <Dropdown.Item onClick={(e) => changeSelect(e)}>
+                SE Method
+                </Dropdown.Item>
 
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
                 Title
