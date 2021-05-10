@@ -63,7 +63,7 @@ function CustomSearchCard(props) {
     if (e.currentTarget.textContent === "SE Method") {
       setFilterSeMethod(seMethods[0]);
     }
-    if (e.currentTarget.textContent === "SE Methodology") {
+    if (e.currentTarget.textContent === "Claim") {
       setFilterSeMethod(seMethods[1]);
     }
   };
@@ -77,7 +77,7 @@ function CustomSearchCard(props) {
   const changeSeMethod = (e) => {
     e.preventDefault();
 
-    if (selectValue === "SE Method" || selectValue === "SE Methodology") {
+    if (selectValue === "SE Method" || selectValue === "Claim") {
       setSeValue(e.target.textContent);
       props.changedSeMethodCallback(e.target.textContent);
     } else {
@@ -106,6 +106,9 @@ function CustomSearchCard(props) {
             <DropdownButton id="dropdown-basic-button" title={selectValue}>
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
                 SE Method
+                </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => changeSelect(e)}>
+                Claim
                 </Dropdown.Item>
 
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
