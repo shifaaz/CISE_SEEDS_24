@@ -63,6 +63,21 @@ function SearchResults() {
         }
     }
 
+    const sortByClaim = (e) => {
+        e.preventDefault();
+        if (e.target.textContent.toLowerCase() === "claim") {
+            setArticles([...articles].sort((a, b) => a.claim.trim() > b.claim.trim() ? 1 : -1));
+        }
+    }
+
+    const sortByEvidence = (e) => {
+        e.preventDefault();
+        if (e.target.textContent.toLowerCase() === "Strength of Evidence") {
+            setArticles([...articles].sort((a, b) => a.strength_of_evidence.trim() > b.strength_of_evidence.trim() ? 1 : -1));
+        }
+    }
+
+
 
 
 
@@ -176,6 +191,9 @@ function SearchResults() {
                             <Dropdown.Item value="author" onClick={(e) => sortByAuthor(e)}>Author</Dropdown.Item>
                             <Dropdown.Item value="title" onClick={(e) => sortByTitle(e)}>Title</Dropdown.Item>
                             <Dropdown.Item value="rating" onClick={(e) => sortByRating(e)}>Rating</Dropdown.Item>
+                            <Dropdown.Item value="claim" onClick={(e) => sortByClaim(e)}>Claim</Dropdown.Item>
+                            <Dropdown.Item value="strength_of_evidence">Strength of Evidence</Dropdown.Item>
+
                         </DropdownButton>
                     </div>
                 </div>
@@ -189,7 +207,7 @@ function SearchResults() {
                                 <th style={{ width: "31.66%" }}><button className="tableButtons" onClick={sortByTitle}>Title</button></th>
                                 <th style={{ width: "16.66%" }}><button className="tableButtons" onClick={sortByJournal}>SE Practice</button></th>
                                 <th style={{ width: "2.66%" }}><button className="tableButtons" onClick={sortByYear}>Year</button></th>
-                                <th style={{ width: "2.66%" }}><button className="tableButtons">Claim</button></th>
+                                <th style={{ width: "2.66%" }}><button className="tableButtons" onClick={sortByClaim}>Claim</button></th>
                                 <th style={{ width: "2.66%" }}><button className="tableButtons">Strength of Evidence</button></th>
                             </tr>
                         </thead>
