@@ -117,6 +117,9 @@ function CustomSearchCard(props) {
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
                 Author
                 </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => changeSelect(e)}>
+                Year
+                </Dropdown.Item>
             </DropdownButton>
           </Col>
           <Col md="auto">
@@ -128,7 +131,7 @@ function CustomSearchCard(props) {
                 does not contain
                 </Dropdown.Item>
               {selectValue !== "SE Method" &&
-                selectValue !== "SE Methodology" ? (
+                selectValue !== "Claim" ? (
                 <>
                   <Dropdown.Item
                     eventKey="3"
@@ -154,7 +157,7 @@ function CustomSearchCard(props) {
           </Col>
           <Col md="auto">
             {selectValue !== "Select" ? (
-              selectValue === "Author" || selectValue === "Title" ? (
+              selectValue === "Author" || selectValue === "Title" || selectValue === "Year" ? (
                 <Form>
                   <Form.Control
                     placeholder={`Enter ${selectValue}`}
