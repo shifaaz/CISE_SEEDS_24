@@ -24,7 +24,8 @@ function CustomSearchCard(props) {
   const [selectValue, setSelect] = useState("Select");
   const [operatorValue, setOperator] = useState("Operator");
   const [seValue, setSeValue] = useState("SE Method");
-
+  // the date part needs to go in here. 
+  
 
   useEffect(() => {
     axios.get("/methods").then((response) => {
