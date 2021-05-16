@@ -13,6 +13,7 @@ import "./CustomSearchCard.css";
 import { resetLists } from "../../actions/index";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Date from "../CustomSearchCard/date";
 
 function CustomSearchCard(props) {
 
@@ -66,6 +67,10 @@ function CustomSearchCard(props) {
     if (e.currentTarget.textContent === "Claim") {
       setFilterSeMethod(seMethods[1]);
     }
+    if (e.currentTarget.textContent === "Year") {
+      // filer a method 
+    }
+
   };
 
   const changeOperator = (e) => {
@@ -158,6 +163,7 @@ function CustomSearchCard(props) {
           <Col md="auto">
             {selectValue !== "Select" ? (
               selectValue === "Author" || selectValue === "Title" || selectValue === "Year" ? (
+                //THS ONE M8
                 <Form>
                   <Form.Control
                     placeholder={`Enter ${selectValue}`}
