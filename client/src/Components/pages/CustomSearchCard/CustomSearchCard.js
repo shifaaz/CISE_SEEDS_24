@@ -68,7 +68,8 @@ function CustomSearchCard(props) {
       setFilterSeMethod(seMethods[1]);
     }
     if (e.currentTarget.textContent === "Year") {
-      // filer a method 
+      // filer a method, use this  to display the methods 
+      Date.sortbyDate();
     }
 
   };
@@ -163,14 +164,12 @@ function CustomSearchCard(props) {
           <Col md="auto">
             {selectValue !== "Select" ? (
               selectValue === "Author" || selectValue === "Title" || selectValue === "Year" ? (
-                //THS ONE M8
+                // change this for the drop down menu part. 
                 <Form>
                   <Form.Control
                     placeholder={`Enter ${selectValue}`}
                     onChange={(e) => changeSeMethod(e)}
-                <input type="radio" name="choice" value="yes"> Yes
-                <input type="radio" name="choice" value="no"> No   
-                 <input type="radio" name="choice" value="no"> No    // change this to the options for date . 
+                    
                   />
                 </Form>
               ) : (
