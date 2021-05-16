@@ -168,6 +168,9 @@ function CustomSearchCard(props) {
                   <Form.Control
                     placeholder={`Enter ${selectValue}`}
                     onChange={(e) => changeSeMethod(e)}
+                <input type="radio" name="choice" value="yes"> Yes
+                <input type="radio" name="choice" value="no"> No   
+                 <input type="radio" name="choice" value="no"> No    // change this to the options for date . 
                   />
                 </Form>
               ) : (
