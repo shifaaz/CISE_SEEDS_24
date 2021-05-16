@@ -34,6 +34,14 @@ exports.sortbyDate = async (req, res) => { //exports the information
 
     //3. Query database using Mongoose
     //Mind the curly braces
+    function general_search () {
+        return articleSchema.find({ // 
+        date: {
+            $gte: new Date(new Date(startDate)), // greter than operator 
+            $lt: new Date(new Date(endDate)) // Less than operator
+        }
+        }).sort({ date: 'asc' });
+    }
     const  genral_search = articleSchema.find({ // 
         date: {
             $gte: new Date(new Date(startDate)), // greter than operator 
