@@ -26,7 +26,7 @@ export class NewLayout extends Component {
       radio: null,
       getSeMethods: [],
       getClaims: [],
-      error: "All Fileds must be fill",
+      error: "",
       value: "all years",
       listArticles: [],
       status: false,

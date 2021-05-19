@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
 import * as ReactBootStrap from "react-bootstrap";
@@ -20,8 +20,8 @@ class SearchResults extends Component {
             value: "all years",
             listArticles: [],
             sortType: 'asc',
-            sortBy:'author',
-            status:true
+            sortBy: 'author',
+            status: true
         };
         this.onSearch = this.onSearch.bind(this);
         // this.validate = this.validate.bind(this);
@@ -36,187 +36,187 @@ class SearchResults extends Component {
             radio: this.props.match.params.radio
         });
         console.log(this.props.match.params.seMethod)
-        this.onSearch(this.props.match.params.seMethod,this.props.match.params.claim,this.props.match.params.start,this.props.match.params.end,this.props.match.params.radio)
+        this.onSearch(this.props.match.params.seMethod, this.props.match.params.claim, this.props.match.params.start, this.props.match.params.end, this.props.match.params.radio)
     }
-    load(){
+    load() {
         this.onSearch();
     }
-    onSearch(se,claim,start,end,radio) {
-        let yr=new Date().getFullYear()
-        if(radio=='last 1 year'){
-            let startYr = yr-1;
+    onSearch(se, claim, start, end, radio) {
+        let yr = new Date().getFullYear()
+        if (radio == 'last 1 year') {
+            let startYr = yr - 1;
             let endYr = yr;
-            axios.get('http://localhost:5000/search/' + se+'/'+claim+'/'+startYr+'/'+endYr).then(response => {
+            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 console.log(startYr);
                 console.log(endYr);
                 this.setState({
-                    listArticles:response.data
+                    listArticles: response.data
                 })
-                if(this.state.listArticles!=''){
+                if (this.state.listArticles != '') {
                     console.log("true")
                     this.setState({
-                        status:false
+                        status: false
                     })
                 }
 
             }).catch(function (error) {
                 console.log(error);
             })
-        }else if(radio=='last 5 year'){
-            let startYr = yr-5;
+        } else if (radio == 'last 5 year') {
+            let startYr = yr - 5;
             let endYr = yr;
-            axios.get('http://localhost:5000/search/' + se+'/'+claim+'/'+startYr+'/'+endYr).then(response => {
+            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
-                    listArticles:response.data
+                    listArticles: response.data
                 })
-                if(this.state.listArticles!=''){
+                if (this.state.listArticles != '') {
                     console.log("true")
                     this.setState({
-                        status:false
+                        status: false
                     })
                 }
             }).catch(function (error) {
                 console.log(error);
             })
-        }else if(radio=='last 10 year'){
-            let startYr = yr-10;
+        } else if (radio == 'last 10 year') {
+            let startYr = yr - 10;
             let endYr = yr;
-            axios.get('http://localhost:5000/search/' + se+'/'+claim+'/'+startYr+'/'+endYr).then(response => {
+            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
-                    listArticles:response.data
+                    listArticles: response.data
                 })
-                if(this.state.listArticles!=''){
+                if (this.state.listArticles != '') {
                     console.log("true")
                     this.setState({
-                        status:false
+                        status: false
                     })
                 }
             }).catch(function (error) {
                 console.log(error);
             })
-        }else if(radio=='All years'){
-            axios.get('http://localhost:5000/searchWithoutYr/' + se+'/'+claim).then(response => {
+        } else if (radio == 'All years') {
+            axios.get('http://localhost:5000/searchWithoutYr/' + se + '/' + claim).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
-                    listArticles:response.data
+                    listArticles: response.data
                 })
-                if(this.state.listArticles!=''){
+                if (this.state.listArticles != '') {
                     console.log("true")
                     this.setState({
-                        status:false
+                        status: false
                     })
                 }
             }).catch(function (error) {
                 console.log(error);
             })
-        }else{
+        } else {
             let startYr = start;
             let endYr = end;
             let obj = { se, claim, startYr, endYr };
-            axios.get('http://localhost:5000/search/' + se+'/'+claim+'/'+startYr+'/'+endYr).then(response => {
+            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
-                    listArticles:response.data
+                    listArticles: response.data
                 })
-                if(this.state.listArticles!=''){
+                if (this.state.listArticles != '') {
                     console.log("true")
                     this.setState({
-                        status:false
+                        status: false
                     })
                 }
             }).catch(function (error) {
                 console.log(error);
             })
 
-            console.log( obj);
+            console.log(obj);
         }
     }
 
-    onSort = sortType =>{
-        this.setState({sortType})
+    onSort = sortType => {
+        this.setState({ sortType })
     }
 
-    
+
 
     render() {
-       
-       const {listArticles, sortType, sortBy} = this.state;
+
+        const { listArticles, sortType, sortBy } = this.state;
 
 
-            const sortedListArticles = this.state.listArticles.sort((a,b)=>{
+        const sortedListArticles = this.state.listArticles.sort((a, b) => {
             const isReversed = (sortType === 'asc') ? 1 : -1;
 
-            if(sortBy === 'author'){
-            return isReversed*a.author.localeCompare(b.author)
+            if (sortBy === 'author') {
+                return isReversed * a.author.localeCompare(b.author)
             }
-            if(sortBy === 'title'){
-            return isReversed*a.title.localeCompare(b.title)
+            if (sortBy === 'title') {
+                return isReversed * a.title.localeCompare(b.title)
             }
-            if(sortBy === 'se_practice'){
-            return isReversed*a.se_practice.localeCompare(b.se_practice)
+            if (sortBy === 'se_practice') {
+                return isReversed * a.se_practice.localeCompare(b.se_practice)
             }
-            if(sortBy === 'year'){
-            return isReversed*a.year.localeCompare(b.year)
+            if (sortBy === 'year') {
+                return isReversed * a.year.localeCompare(b.year)
             }
-            if(sortBy === 'claim'){
-            return isReversed*a.claim.localeCompare(b.claim)
+            if (sortBy === 'claim') {
+                return isReversed * a.claim.localeCompare(b.claim)
             }
-            if(sortBy === 'strength_of_evidence'){
-            return isReversed*a.strength_of_evidence.localeCompare(b.strength_of_evidence)
+            if (sortBy === 'strength_of_evidence') {
+                return isReversed * a.strength_of_evidence.localeCompare(b.strength_of_evidence)
             }
-        }) 
+        })
 
         return (
-            <div className={"container"} style={{marginTop:"5%"}}>
+            <div className={"container"} style={{ marginTop: "5%" }}>
                 <div className="searchData">
                     <ReactBootStrap.Table striped bordered hover style={{ width: "100%" }}>
                         <thead>
-                        <tr>
-                            <th style={{ width: "16.66%" }}>
-                                <button className="tableButtons" onClick={()=>{this.onSort(this.state.sortType ==="desc"?"asc":"desc"); this.state.sortBy = 'author'}}>
-                                    Author
+                            <tr>
+                                <th style={{ width: "16.66%" }}>
+                                    <button className="tableButtons" onClick={() => { this.onSort(this.state.sortType === "desc" ? "asc" : "desc"); this.state.sortBy = 'author' }}>
+                                        Author
                                 </button>
-                            </th>
-                            <th style={{ width: "16.66%" }}>
-                                <button className="tableButtons" onClick={()=>{this.onSort(this.state.sortType ==="desc"?"asc":"desc"); this.state.sortBy = 'title'}}>
-                                    Title
+                                </th>
+                                <th style={{ width: "16.66%" }}>
+                                    <button className="tableButtons" onClick={() => { this.onSort(this.state.sortType === "desc" ? "asc" : "desc"); this.state.sortBy = 'title' }}>
+                                        Title
                                 </button>
-                            </th>
-                            <th style={{ width: "16.66%" }}>
-                                <button className="tableButtons" onClick={()=>{this.onSort(this.state.sortType ==="desc"?"asc":"desc"); this.state.sortBy = 'se_practice'}}>
-                                    SE Practice
+                                </th>
+                                <th style={{ width: "16.66%" }}>
+                                    <button className="tableButtons" onClick={() => { this.onSort(this.state.sortType === "desc" ? "asc" : "desc"); this.state.sortBy = 'se_practice' }}>
+                                        SE Practice
                                 </button>
-                            </th>
-                            <th style={{ width: "16.66%" }}>
-                                <button className="tableButtons" onClick={()=>{this.onSort(this.state.sortType ==="desc"?"asc":"desc"); this.state.sortBy = 'year'}}>
-                                    Year
+                                </th>
+                                <th style={{ width: "16.66%" }}>
+                                    <button className="tableButtons" onClick={() => { this.onSort(this.state.sortType === "desc" ? "asc" : "desc"); this.state.sortBy = 'year' }}>
+                                        Year
                                 </button>
-                            </th>
-                            <th style={{ width: "16.66%" }}>
-                                <button className="tableButtons" onClick={()=>{this.onSort(this.state.sortType ==="desc"?"asc":"desc"); this.state.sortBy = 'claim'}}>
-                                    Claim
+                                </th>
+                                <th style={{ width: "16.66%" }}>
+                                    <button className="tableButtons" onClick={() => { this.onSort(this.state.sortType === "desc" ? "asc" : "desc"); this.state.sortBy = 'claim' }}>
+                                        Claim
                                 </button>
-                            </th>
-                            <th style={{ width: "16.66%" }}>
-                                <button className="tableButtons" onClick={()=>{this.onSort(this.state.sortType ==="desc"?"asc":"desc"); this.state.sortBy = 'strength_of_evidence'}}>Strength of Evidence</button>
-                            </th>
-                        </tr>
+                                </th>
+                                <th style={{ width: "16.66%" }}>
+                                    <button className="tableButtons" onClick={() => { this.onSort(this.state.sortType === "desc" ? "asc" : "desc"); this.state.sortBy = 'strength_of_evidence' }}>Strength of Evidence</button>
+                                </th>
+                            </tr>
                         </thead>
 
 
                         {!this.state.status ?
 
                             <tbody>
-                            {sortedListArticles.map(item => {
-                                    return(
+                                {sortedListArticles.map(item => {
+                                    return (
                                         <tr>
                                             <td>{item.author}</td>
                                             <td>{item.title}</td>
@@ -234,21 +234,21 @@ class SearchResults extends Component {
                             </tbody>
 
 
-                                // <td><center><h2 className="text-danger" style={{ width: "100%" }}>No Entries for the Search!</h2></center></td>
+                            // <td><center><h2 className="text-danger" style={{ width: "100%" }}>No Entries for the Search!</h2></center></td>
 
                             :
                             <tbody>
 
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <Alert variant="success">No Entries!!</Alert>
-                                      </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <Alert variant="success">No Results Found</Alert>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
                             </tbody>
 
                         }
