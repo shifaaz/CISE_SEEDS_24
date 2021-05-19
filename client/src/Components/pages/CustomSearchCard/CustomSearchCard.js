@@ -13,6 +13,7 @@ import "./CustomSearchCard.css";
 import { resetLists } from "../../actions/index";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Date from "../CustomSearchCard/date";
 
 function CustomSearchCard(props) {
 
@@ -64,9 +65,14 @@ function CustomSearchCard(props) {
     if (e.currentTarget.textContent === "SE Method") {
       setFilterSeMethod(seMethods[0]);
     }
-    if (e.currentTarget.textContent === "SE Methodology") {
+    if (e.currentTarget.textContent === "Claim") {
       setFilterSeMethod(seMethods[1]);
     }
+    if (e.currentTarget.textContent === "Year") {
+      // filer a method, use this  to display the methods 
+      Date.sortbyDate();
+    }
+
   };
 
   const changeOperator = (e) => {
@@ -78,7 +84,7 @@ function CustomSearchCard(props) {
   const changeSeMethod = (e) => {
     e.preventDefault();
 
-    if (selectValue === "SE Method" || selectValue === "SE Methodology") {
+    if (selectValue === "SE Method" || selectValue === "Claim") {
       setSeValue(e.target.textContent);
       props.changedSeMethodCallback(e.target.textContent);
     } else {
@@ -108,12 +114,18 @@ function CustomSearchCard(props) {
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
                 SE Method
                 </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => changeSelect(e)}>
+                Claim
+                </Dropdown.Item>
 
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
                 Title
                 </Dropdown.Item>
               <Dropdown.Item onClick={(e) => changeSelect(e)}>
                 Author
+                </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => changeSelect(e)}>
+                Year
                 </Dropdown.Item>
             </DropdownButton>
           </Col>
@@ -126,7 +138,7 @@ function CustomSearchCard(props) {
                 does not contain
                 </Dropdown.Item>
               {selectValue !== "SE Method" &&
-                selectValue !== "SE Methodology" ? (
+                selectValue !== "Claim" ? (
                 <>
                   <Dropdown.Item
                     eventKey="3"
@@ -152,11 +164,14 @@ function CustomSearchCard(props) {
           </Col>
           <Col md="auto">
             {selectValue !== "Select" ? (
-              selectValue === "Author" || selectValue === "Title" ? (
+              selectValue === "Author" || selectValue === "Title" || selectValue === "Year" ? (
+                // change this for the drop down menu part. 
                 <Form>
+                  
                   <Form.Control
                     placeholder={`Enter ${selectValue}`}
                     onChange={(e) => changeSeMethod(e)}
+                    
                   />
                 </Form>
               ) : (

@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import BootstrapButton from 'react-bootstrap/Button';
 import UIButton from '@material-ui/core/Button'
 import { useDispatch } from "react-redux";
-import { addLeft, addMiddle} from "../actions/index";
+import { addLeft, addMiddle } from "../actions/index";
 
 function SearchBar() {
   const [searchInput, setSearchInput] = useState("");
@@ -19,25 +19,25 @@ function SearchBar() {
   const dispatch = useDispatch();
 
   const search = (e) => {
-      e.preventDefault();
-      if (searchInput !== "" && customValue !== ""){
-        history.push(`/search/${searchInput}/${customValue}`)
-        dispatch(addLeft(selectionValue));
-        dispatch(addMiddle(operatorValue));
-      }
-      else if (customValue !== ""){
-        history.push(`/search/custom/${customValue}`)
-        dispatch(addLeft(selectionValue));
-        dispatch(addMiddle(operatorValue));
+    e.preventDefault();
+    if (searchInput !== "" && customValue !== "") {
+      history.push(`/search/${searchInput}/${customValue}`)
+      dispatch(addLeft(selectionValue));
+      dispatch(addMiddle(operatorValue));
+    }
+    else if (customValue !== "") {
+      history.push(`/search/custom/${customValue}`)
+      dispatch(addLeft(selectionValue));
+      dispatch(addMiddle(operatorValue));
 
-      }
-      else if (searchInput !== "") {
-        history.push(`/search/${searchInput}`)
-      }
-      else{
-          history.push(`/search`)
-      }
-      setSearchInput("")
+    }
+    else if (searchInput !== "") {
+      history.push(`/search/${searchInput}`)
+    }
+    else {
+      history.push(`/search`)
+    }
+    setSearchInput("")
   }
 
   const changedSelectValue = (data) => {
@@ -60,7 +60,7 @@ function SearchBar() {
             type="text"
             placeholder="Search"
             value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
+
           />
           <UIButton type="submit" onClick={search}>
             <SearchIcon className="search_inputIcon" />
