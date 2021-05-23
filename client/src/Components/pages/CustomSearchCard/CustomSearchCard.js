@@ -165,7 +165,10 @@ function CustomSearchCard(props) {
           <Col md="auto">
             {selectValue !== "Select" ? (
               selectValue === "Author" || selectValue === "Title" || selectValue === "Year" ? (
+<<<<<<< HEAD
+=======
                 // change this for the drop down menu part. 
+>>>>>>> development
                 <Form>
                   
                   <Form.Control

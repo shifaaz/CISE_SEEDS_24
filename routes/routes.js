@@ -12,6 +12,14 @@ router
   .get(articleController.getPublicArticle)
 
 router
+  .route("/getSeMethods")
+  .get(articleController.getSeMethods)
+
+router
+    .route("/getClaims")
+    .get(articleController.getClaims)
+
+router
   .route("/articles/:ArticleId")
   .put(articleController.updatePublicArticleRating)
   .get(articleController.getSpecificArticle);
@@ -77,5 +85,14 @@ router
   .post(fileController.addNewFile);
 console.log("fileRoutes been activied");
 
+router
+    .route("/search/:seMethod/:claim/:startDate/:endDate")
+    .get(articleController.searchArticle)
+console.log("search been activied");
+
+router
+    .route("/searchWithoutYr/:seMethod/:claim")
+    .get(articleController.searchArticlewithoutYr)
+console.log("search been activied");
 module.exports = router;
 

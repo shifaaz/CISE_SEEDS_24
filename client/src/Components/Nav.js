@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AdminPage from './pages/AdminPage';
 import AnalystPage from './pages/AnalystPage';
 import Homepage from './pages/Homepage';
-import SearchResults from './pages/SearchResults';
+import SearchResults from './SearchComponents/SearchResults';
 import UploadArticlePage from './pages/UploadPage/UploadArticlePage'
 import ModerationPage from "./pages/ModerationPage"
+import NewLayout from "./SearchComponents/NewLayout";
 
 function Nav() {
     return (
@@ -24,6 +25,8 @@ function Nav() {
                     </Route>
                     <Route path="/" exact component={Homepage}>
                     </Route>
+                    <Route exact path="/searchResults/:seMethod/:claim/:start/:end/:radio" component={SearchResults}/>
+
                 </Switch>
             </div>
         </Router>

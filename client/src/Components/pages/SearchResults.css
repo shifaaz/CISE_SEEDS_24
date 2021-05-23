@@ -18,7 +18,7 @@
 
 .results > td > a {
     display: block;
-    width: %;
+    width:100%;
     height: 100%;
     text-decoration: none;
     color: darkred;

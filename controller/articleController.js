@@ -33,6 +33,36 @@ module.exports = {
             .then(Articles => res.json(Articles))
             .catch(err => res.status(422).json(err));
     },
+    searchArticle: function (req, res) {
+        let seMethod=req.params.seMethod;
+        let claim=req.params.claim;
+        let startDate=req.params.startDate;
+        let endDate=req.params.endDate;
+
+        publicArticle.find({
+            semethod:seMethod,
+            claim:claim,
+            year: {
+                $gte: startDate,
+                $lt: endDate
+            }
+        })
+            .then(Articles => res.json(Articles))
+            .catch(err => res.status(422).json(err));
+    },
+    searchArticlewithoutYr: function (req, res) {
+        let seMethod=req.params.seMethod;
+        let claim=req.params.claim;
+        let startDate=req.params.startDate;
+        let endDate=req.params.endDate;
+
+        publicArticle.find({
+            semethod:seMethod,
+            claim:claim
+        })
+            .then(Articles => res.json(Articles))
+            .catch(err => res.status(422).json(err));
+    },
     analystAcceptArticle: function (req, res) {
         publicArticle.create(req.body)
             .then(newArticle => res.json(newArticle))
@@ -45,6 +75,16 @@ module.exports = {
     },
     getPublicArticle: function (req, res) {
         publicArticle.find({})
+            .then(Articles => res.json(Articles))
+            .catch(err => res.status(422).json(err));
+    },
+    getSeMethods: function (req, res) {
+        publicArticle.distinct('semethod')
+    .then(Articles => res.json(Articles))
+            .catch(err => res.status(422).json(err));
+    },
+    getClaims: function (req, res) {
+        publicArticle.distinct('claim')
             .then(Articles => res.json(Articles))
             .catch(err => res.status(422).json(err));
     },
