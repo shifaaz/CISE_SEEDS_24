@@ -16,8 +16,8 @@ router
   .get(articleController.getSeMethods)
 
 router
-    .route("/getClaims")
-    .get(articleController.getClaims)
+  .route("/getClaims")
+  .get(articleController.getClaims)
 
 router
   .route("/articles/:ArticleId")
@@ -86,13 +86,13 @@ router
 console.log("fileRoutes been activied");
 
 router
-    .route("/search/:seMethod/:claim/:startDate/:endDate")
-    .get(articleController.searchArticle)
+  .route("/search/:seMethod/:claim/:startDate/:endDate")
+  .get(articleController.searchArticle)
 console.log("search been activied");
 
 router
-    .route("/searchWithoutYr/:seMethod/:claim")
-    .get(articleController.searchArticlewithoutYr)
+  .route("/searchWithoutYr/:seMethod/:claim")
+  .get(articleController.searchArticlewithoutYr)
 console.log("search been activied");
 module.exports = router;
 

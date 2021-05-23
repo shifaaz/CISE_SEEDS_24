@@ -26,7 +26,7 @@ export class NewLayout extends Component {
       radio: null,
       getSeMethods: [],
       getClaims: [],
-      error: "",
+      error: "All Fileds must be fill",
       value: "all years",
       listArticles: [],
       status: false,
@@ -91,7 +91,7 @@ export class NewLayout extends Component {
   }
 
   getSEMethods() {
-    axios.get('http://localhost:5000/getSeMethods/').then(response => {
+    axios.get('/getSeMethods').then(response => {
       console.log(response.data)
       console.log(response.status);
       this.setState({
@@ -103,7 +103,7 @@ export class NewLayout extends Component {
     })
   }
   getClaims() {
-    axios.get('http://localhost:5000/getClaims/').then(response => {
+    axios.get('/getClaims').then(response => {
       console.log(response.data)
       console.log(response.status);
       this.setState({

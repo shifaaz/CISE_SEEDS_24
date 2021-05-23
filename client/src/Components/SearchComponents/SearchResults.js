@@ -46,7 +46,7 @@ class SearchResults extends Component {
         if (radio == 'last 1 year') {
             let startYr = yr - 1;
             let endYr = yr;
-            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
+            axios.get('/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 console.log(startYr);
@@ -67,7 +67,7 @@ class SearchResults extends Component {
         } else if (radio == 'last 5 year') {
             let startYr = yr - 5;
             let endYr = yr;
-            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
+            axios.get('/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
@@ -85,7 +85,7 @@ class SearchResults extends Component {
         } else if (radio == 'last 10 year') {
             let startYr = yr - 10;
             let endYr = yr;
-            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
+            axios.get('/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
@@ -101,7 +101,7 @@ class SearchResults extends Component {
                 console.log(error);
             })
         } else if (radio == 'All years') {
-            axios.get('http://localhost:5000/searchWithoutYr/' + se + '/' + claim).then(response => {
+            axios.get('/searchWithoutYr/' + se + '/' + claim).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
@@ -120,7 +120,7 @@ class SearchResults extends Component {
             let startYr = start;
             let endYr = end;
             let obj = { se, claim, startYr, endYr };
-            axios.get('http://localhost:5000/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
+            axios.get('/search/' + se + '/' + claim + '/' + startYr + '/' + endYr).then(response => {
                 console.log(response.data)
                 console.log(response.status);
                 this.setState({
@@ -243,7 +243,7 @@ class SearchResults extends Component {
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <Alert variant="success">No Results Found</Alert>
+                                        <Alert variant="success">No Entries!!</Alert>
                                     </td>
                                     <td></td>
                                     <td></td>

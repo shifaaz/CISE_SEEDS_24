@@ -69,7 +69,6 @@ function SearchResults() {
     }
   };
 
-<<<<<<< HEAD
   const sortByRating = (e) => {
     if (e.target.textContent.toLowerCase() === "rating") {
       setArticles(
@@ -86,23 +85,6 @@ function SearchResults() {
       );
     }
   };
-=======
-    const sortByClaim = (e) => {
-        e.preventDefault();
-        if (e.target.textContent.toLowerCase() === "claim") {
-            setArticles([...articles].sort((a, b) => a.claim.trim() > b.claim.trim() ? 1 : -1));
-        }
-    }
-
-    const sortByEvidence = (e) => {
-        e.preventDefault();
-        if (e.target.textContent.toLowerCase() === "Strength of Evidence") {
-            setArticles([...articles].sort((a, b) => a.strength_of_evidence.trim() > b.strength_of_evidence.trim() ? 1 : -1));
-        }
-    }
-
-
->>>>>>> development
 
   const sortByClaim = (e) => {
     e.preventDefault();
@@ -250,7 +232,6 @@ function SearchResults() {
     if (isNaN(sum)) sum = 0;
 
     return (
-<<<<<<< HEAD
       <tr
         id={article}
         className="results"
@@ -325,48 +306,3 @@ function SearchResults() {
 }
 
 export default SearchResults;
-=======
-        <div>
-            <NavigationBar></NavigationBar>
-            <div className="searchResults">
-                <div className='searchHeader'>
-                    <SearchHeader></SearchHeader>
-                </div>
-                <div className='sortBy'>
-                    <div>
-                        <DropdownButton id="dropdown-item-button" title={selectOption}>
-                            <Dropdown.Item value="author" onClick={(e) => sortByAuthor(e)}>Author</Dropdown.Item>
-                            <Dropdown.Item value="title" onClick={(e) => sortByTitle(e)}>Title</Dropdown.Item>
-                            <Dropdown.Item value="rating" onClick={(e) => sortByRating(e)}>Rating</Dropdown.Item>
-                            <Dropdown.Item value="claim" onClick={(e) => sortByClaim(e)}>Claim</Dropdown.Item>
-                            <Dropdown.Item value="strength_of_evidence">Strength of Evidence</Dropdown.Item>
-
-                        </DropdownButton>
-                    </div>
-                </div>
-                <p className="resultsNumber">Number of results for query "{term}" : {filteredArticles.length}</p>
-                {show ? <ModalContent /> : null}
-                <div className='searchData'>
-                    <ReactBootStrap.Table striped bordered hover>
-                        <thead>
-                            <tr>
-                                <th style={{ width: "31.66%" }}><button className="tableButtons" onClick={sortByAuthor}>Author</button></th>
-                                <th style={{ width: "31.66%" }}><button className="tableButtons" onClick={sortByTitle}>Title</button></th>
-                                <th style={{ width: "16.66%" }}><button className="tableButtons" onClick={sortByJournal}>SE Practice</button></th>
-                                <th style={{ width: "2.66%" }}><button className="tableButtons" onClick={sortByYear}>Year</button></th>
-                                <th style={{ width: "2.66%" }}><button className="tableButtons" onClick={sortByClaim}>Claim</button></th>
-                                <th style={{ width: "2.66%" }}><button className="tableButtons">Strength of Evidence</button></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filteredArticles.map(renderArticles)}
-                        </tbody>
-                    </ReactBootStrap.Table>
-                </div>
-            </div>
-        </div>);
-};
-
-
-export default SearchResults;
->>>>>>> development
