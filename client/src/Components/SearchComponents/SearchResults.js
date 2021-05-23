@@ -243,7 +243,7 @@ class SearchResults extends Component {
                                     <td></td>
                                     <td></td>
                                     <td>
-                                        <Alert variant="success">No Entries!!</Alert>
+                                        <Alert variant="success">No Results Found</Alert>
                                     </td>
                                     <td></td>
                                     <td></td>

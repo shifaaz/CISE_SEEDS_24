@@ -26,7 +26,7 @@ export class NewLayout extends Component {
       radio: null,
       getSeMethods: [],
       getClaims: [],
-      error: "All Fileds must be fill",
+      error: "",
       value: "all years",
       listArticles: [],
       status: false,
@@ -82,7 +82,7 @@ export class NewLayout extends Component {
     let endYr = this.state.end;
     if (se === "" || claim === "" || startYr === "" || endYr === "") {
       this.setState({
-        error: "All Fileds must be fill",
+        error: "Select all fields",
       });
       return false;
     } else {
@@ -195,12 +195,12 @@ export class NewLayout extends Component {
                   <FormControlLabel
                     value="last 5 year"
                     control={<Radio />}
-                    label="last 5 year"
+                    label="last 5 years"
                   />
                   <FormControlLabel
                     value="last 10 year"
                     control={<Radio />}
-                    label="last 10 year"
+                    label="last 10 years"
                   />
                   <FormControlLabel
                     value="All years"

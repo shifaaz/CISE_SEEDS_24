@@ -1,3 +1,4 @@
+
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../server');
@@ -21,34 +22,5 @@ describe('Articles', () => {
         });
     });
   });
-  describe('/POST Article', () => {
-    it('Posting an article', (done) => {
-      let article = {
-        title: "Trip to mars",
-        author: "John Doe",
-        year: 1999
-      }
-      chai.request(server)
-        .post('/articles')
-        .send(article)
-        .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
-          id = res.body._id
-          done();
-        });
-    });
-  });
-  describe(`/moderation/:ArticleId to remove newly created article so it doesnt get added to database`, () => {
-    it('deleting article', (done) => {
-        chai.request(server)
-            .delete(`/moderation/${id}`)
-            .end((err, res) => {
-                res.should.have.status(200);
-                res.body.should.be.a('object');
-                done();
-            });
-    });
-});
 
 });
