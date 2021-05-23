@@ -9,7 +9,8 @@
     "build": "cd client && npm run build",
     "install-frontend": "cd client && npm install",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-frontend && npm run build",
-    "test-backend": "mocha Tests/**/*.js --exit --timeout 10000"
+    "test-backend": "mocha Tests/**/*.js --exit --timeout 10000",
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
