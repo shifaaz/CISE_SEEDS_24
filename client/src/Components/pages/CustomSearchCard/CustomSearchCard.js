@@ -13,6 +13,7 @@ import "./CustomSearchCard.css";
 import { resetLists } from "../../actions/index";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import Date from "../CustomSearchCard/date";
 
 function CustomSearchCard(props) {
 
@@ -24,7 +25,8 @@ function CustomSearchCard(props) {
   const [selectValue, setSelect] = useState("Select");
   const [operatorValue, setOperator] = useState("Operator");
   const [seValue, setSeValue] = useState("SE Method");
-
+  // the date part needs to go in here. 
+  
 
   useEffect(() => {
     axios.get("/methods").then((response) => {
@@ -66,6 +68,11 @@ function CustomSearchCard(props) {
     if (e.currentTarget.textContent === "Claim") {
       setFilterSeMethod(seMethods[1]);
     }
+    if (e.currentTarget.textContent === "Year") {
+      // filer a method, use this  to display the methods 
+      Date.sortbyDate();
+    }
+
   };
 
   const changeOperator = (e) => {
@@ -158,10 +165,16 @@ function CustomSearchCard(props) {
           <Col md="auto">
             {selectValue !== "Select" ? (
               selectValue === "Author" || selectValue === "Title" || selectValue === "Year" ? (
+<<<<<<< HEAD
+=======
+                // change this for the drop down menu part. 
+>>>>>>> development
                 <Form>
+                  
                   <Form.Control
                     placeholder={`Enter ${selectValue}`}
                     onChange={(e) => changeSeMethod(e)}
+                    
                   />
                 </Form>
               ) : (

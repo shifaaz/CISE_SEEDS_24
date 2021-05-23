@@ -22,7 +22,10 @@ describe('Articles', () => {
     });
   });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> development
 
 });
