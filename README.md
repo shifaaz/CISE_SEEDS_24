@@ -2,6 +2,7 @@
 
 
 SEEDS is a searchable repository for articles about software development methods and best practices.
+It is written using the MERN stack.
 
 ## Installation
 
