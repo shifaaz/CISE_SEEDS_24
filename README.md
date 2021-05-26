@@ -4,6 +4,10 @@
 SEEDS is a searchable repository for articles about software development methods and best practices.
 It is written using the MERN stack.
 
+Deployed Website:
+
+https://team24seeds.herokuapp.com/
+
 ## Installation
 
 Download the package as a zip file and open in VS Code.
