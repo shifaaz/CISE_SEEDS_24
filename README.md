@@ -6,6 +6,9 @@ It is written using the MERN stack.
 
 Deployed Website:
 
+[Website Preview](https://i.imgur.com/jEw12qH.png)
+
+
 https://team24seeds.herokuapp.com/
 
 ## Installation
